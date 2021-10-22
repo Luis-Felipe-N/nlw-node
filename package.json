@@ -20,7 +20,8 @@
   "homepage": "https://github.com/Luis-Felipe-N/nlw-node#readme",
   "dependencies": {
     "axios": "^0.23.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "json-web-token": "^3.2.0"
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",

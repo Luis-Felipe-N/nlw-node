@@ -1,8 +1,8 @@
 import express from 'express'
-import { AutheticateUserController } from './controllers/AutheticateUserController'
+import { AuthenticateUserController } from './controllers/AuthenticateUserController'
 
 const router = express.Router()
 
-router.post('/authenicate', new AutheticateUserController().handle)
+router.post('/authenticate', new AuthenticateUserController().handle)
 
 export { router }
