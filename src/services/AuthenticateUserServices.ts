@@ -55,17 +55,22 @@ class AuthenticateUserServices {
             })
         }
 
-        const token = sign({
-            user: {
+        const token = sign(
+            {
+              user: {
                 name: user.name,
                 avatar_url: user.avatar_url,
-                github_id: user.github_id
+                id: user.id,
+              },
+            },
+            process.env.JWT_SECRET,
+            {
+              subject: user.id,
+              expiresIn: "1d"
             }
-        },
-        ""
-        )
+          );
 
-        return response.data
+        return { token, user }
     }
 }
 
