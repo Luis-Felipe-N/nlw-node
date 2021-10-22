@@ -1,9 +1,24 @@
-import dotenv from 'dotenv'
+import dotenv from 'dotenv' 
 dotenv.config()
+
+import { Server } from 'socket.io'
+import http from 'http'
 
 import express from 'express'
 import { router } from './routes'
+
 const app = express()
+
+const httpServer = http.createServer(app)
+const io = new Server(httpServer, {
+    cors: {
+        origin: '*'
+    }
+})
+
+io.on("connectin", socket => {
+    console.log('Usuário conectado')
+})
 
 app.use(express.json())
 app.use(router)
@@ -18,4 +33,4 @@ app.get('/signin/callback' , (request, response) => {
     response.json(code)
 })
 
-app.listen(3000, () => console.log('Server running on port 3000'))
+export { httpServer, io }
