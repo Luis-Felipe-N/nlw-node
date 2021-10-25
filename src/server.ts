@@ -1,3 +1,3 @@
 import { httpServer } from "./app";
 
-httpServer.listen(3000, () => console.log('Server running on port 3000'))
+httpServer.listen(4000, () => console.log('Server running on port 3000'))
